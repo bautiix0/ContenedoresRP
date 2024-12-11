@@ -1,180 +1,155 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Historia de EneTeUVe</title>
+    <title>Sistema de Venta de Casas</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            font-family: Arial, sans-serif;
+            background: url('https://steamuserimages-a.akamaihd.net/ugc/857230201752875614/75CF134EE570CBA4C1662EA833FFA61B27DFD69E/') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .house-card {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 600px;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .house-details {
+            width: 60%;
+        }
+
+        .house-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .house-card-header h2 {
+            font-size: 20px;
+            margin: 0;
+            color: #fbbf24;
+        }
+
+        .close-btn {
+            background-color: #dc2626;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+        }
+
+        .house-info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .house-info p span {
+            margin-left: 8px;
+        }
+
+        .house-image {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .house-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .house-card-footer {
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        h1, h2, p {
-            text-align: center;
-            margin: 0.5em;
-        }
-        .container {
-            width: 80%;
-            max-width: 800px;
-            text-align: center;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-        .button, .discord-button {
-            padding: 10px 20px;
-            margin: 20px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            border-radius: 25px;
-        }
-        .button {
-            background-color: #08f;
-            color: #fff;
-        }
-        .button:hover {
-            background-color: #06c;
-            transform: scale(1.1);
-        }
-        .button:active {
-            transform: scale(1.05);
-        }
-        .discord-button {
-            background-color: #7289da;
-            color: #fff;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .discord-button:hover {
-            background-color: #5a6fb2;
-            transform: scale(1.1);
-        }
-        .discord-button:active {
-            transform: scale(1.05);
-        }
-        #moreText {
-            display: none;
-            text-align: left;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            align-items: flex-start;
             margin-top: 20px;
         }
-        .bubble {
-            position: absolute;
-            bottom: -50px;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: rise 10s infinite;
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #10b981;
         }
-        .bubble:nth-child(2) {
-            left: 20%;
-            width: 20px;
-            height: 20px;
-            animation-duration: 7s;
-            animation-delay: 2s;
+
+        .buy-btn {
+            background-color: #10b981;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
         }
-        .bubble:nth-child(3) {
-            left: 40%;
-            width: 60px;
-            height: 60px;
-            animation-duration: 12s;
-            animation-delay: 4s;
+
+        .buy-btn:hover {
+            background-color: #059669;
         }
-        .bubble:nth-child(4) {
-            left: 60%;
-            width: 30px;
-            height: 30px;
-            animation-duration: 9s;
-            animation-delay: 6s;
-        }
-        .bubble:nth-child(5) {
-            left: 80%;
-            width: 50px;
-            height: 50px;
-            animation-duration: 11s;
-            animation-delay: 3s;
-        }
-        @keyframes rise {
-            0% {
-                transform: translateY(0);
-                opacity: 0.7;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
+
+        .footer-text {
+            font-size: 12px;
+            color: #ffffff;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="container fade-in">
-        <h1>La Historia de EneTeUVe</h1>
-        <h2>Un ladrón de mods</h2>
-        <p>
-            En el oscuro mundo de los videojuegos, existía un nombre que infundía miedo y respeto: EneTeUVe. 
-            Conocido por ser un ladrón de mods, EneTeUVe robó todos los mods posibles para abrir su propio servidor de Unturned.
-        </p>
-        <p>
-            Con astucia y habilidades inigualables, EneTeUVe penetró en los sistemas de los mejores desarrolladores de mods, 
-            extrayendo sus creaciones más valiosas y únicas. Los jugadores no tardaron en notar su presencia.
-        </p>
-        <button class="button" onclick="showMore()">Leer Más</button>
-        <div id="moreText">
-            <p>
-                Después de reunir una impresionante colección de mods, EneTeUVe lanzó su servidor de Unturned, 
-                atrayendo a miles de jugadores con la promesa de experiencias únicas y emocionantes. Sin embargo, 
-                detrás de esta fachada, EneTeUVe tramaba algo mucho más siniestro.
-            </p>
-            <p>
-                Con el tiempo, los usuarios descubrieron que habían sido estafados. 
-                Los mods que tanto disfrutaban comenzaron a desaparecer, y los pagos que hicieron nunca se reflejaron en mejoras reales. 
-                EneTeUVe había utilizado sus habilidades no solo para robar mods, sino también para engañar y aprovecharse de sus propios usuarios.
-            </p>
-            <p>
-                La comunidad de jugadores quedó marcada por las acciones de EneTeUVe, un recordatorio constante de la delgada línea entre 
-                la genialidad y la malicia en el mundo de los videojuegos.
-            </p>
+    <div class="house-card">
+        <div class="house-details">
+            <div class="house-card-header">
+                <h2>Apartamento Pequeño 1</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="house-info">
+                <p><b>ID:</b> <span>#120</span></p>
+                <p><b>Ubicación:</b> <span>Cerca de Washington</span></p>
+                <p><b>Muebles:</b> <span>0/10</span></p>
+                <p><b>Puertas:</b> <span>10</span></p>
+            </div>
+            <div class="house-card-footer">
+                <span class="price">$10,000,000</span>
+                <button class="buy-btn">Comprar</button>
+                <div class="footer-text">Ciruja Plugins</div>
+            </div>
         </div>
-        <a href="https://discord.gg/NPMH472A" class="discord-button">Discord del estafador</a>
+        <div class="house-image">
+            <img src="https://media.discordapp.net/attachments/992767957514059926/1079119759498551441/Hot_Dog.gif?ex=6759e517&is=67589397&hm=fa3ad2a99639b0b8fd0a55c1e2538155734906a9bc8ec16210fd12afd19556d4&" alt="GIF de la casa">
+        </div>
     </div>
+
     <script>
-        function showMore() {
-            const moreText = document.getElementById('moreText');
-            moreText.style.display = moreText.style.display === 'none' ? 'block' : 'none';
-        }
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            alert('Cerrando ventana.');
+        });
+
+        document.querySelector('.buy-btn').addEventListener('click', function() {
+            alert('Has comprado la casa.');
+        });
     </script>
 </body>
 </html>
-
