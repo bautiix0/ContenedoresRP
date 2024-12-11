@@ -1,155 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Venta de Casas</title>
+    <meta name="description" content="Vanguard RP - Servidor Roleplay para Unturned con temática medieval">
+    <title>Vanguard RP - Servidor Roleplay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Pirata+One&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: url('https://steamuserimages-a.akamaihd.net/ugc/857230201752875614/75CF134EE570CBA4C1662EA833FFA61B27DFD69E/') no-repeat center center fixed;
-            background-size: cover;
+            font-family: 'Cinzel', serif;
+            background-color: #121212;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
+            padding: 0;
+            color: #e5e5e5;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
-        .house-card {
-            background-color: rgba(15, 23, 42, 0.8);
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 600px;
-            padding: 20px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .house-details {
-            width: 60%;
-        }
-
-        .house-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .house-card-header h2 {
-            font-size: 20px;
-            margin: 0;
-            color: #fbbf24;
-        }
-
-        .close-btn {
-            background-color: #dc2626;
-            border: none;
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
+        header {
+            background: #2a1b47;
             text-align: center;
-            line-height: 24px;
+            padding: 60px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
         }
 
-        .house-info p {
-            margin: 8px 0;
-            font-size: 16px;
+        header h1 {
+            font-size: 3.5em;
+            color: #d3af75;
+            margin: 0;
+            font-family: 'Pirata One', sans-serif;
         }
 
-        .house-info p span {
-            margin-left: 8px;
+        header p {
+            font-size: 1.3em;
+            color: #b6a57a;
+            font-family: 'Cinzel', serif;
         }
 
-        .house-image {
-            width: 35%;
+        .main-content {
+            padding: 20px;
+            text-align: center;
+            background: #2a1b47;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .images {
             display: flex;
             justify-content: center;
-            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
         }
 
-        .house-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .images img {
+            width: 500px;
+            border: 6px solid #d3af75;
+            border-radius: 20px;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .house-card-footer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
+        .images img:hover {
+            transform: scale(1.05);
+        }
+
+        .discord-btn {
+            background-color: #7289da;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 12px;
+            text-decoration: none;
             margin-top: 20px;
+            display: inline-block;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #10b981;
+        .discord-btn:hover {
+            background-color: #5a6e99;
+            transform: translateY(-3px);
         }
 
-        .buy-btn {
-            background-color: #10b981;
-            border: none;
-            padding: 10px 20px;
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-top: 10px;
+        .announcements {
+            background-color: #2a1b47;
+            padding: 40px;
+            margin-top: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .buy-btn:hover {
-            background-color: #059669;
+        .announcement {
+            background-color: #1c1525;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 10px solid #d3af75;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
         }
 
-        .footer-text {
-            font-size: 12px;
-            color: #ffffff;
-            margin-top: 10px;
+        .announcement h2 {
+            color: #d3af75;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-family: 'Pirata One', sans-serif;
+        }
+
+        .announcement p {
+            font-size: 1.2em;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #2a1b47;
+            text-align: center;
+            padding: 20px;
+            color: #d3af75;
+            font-size: 1.2em;
+        }
+
+        .devlog-content {
+            font-size: 1.1em;
+            color: #ddd;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <div class="house-card">
-        <div class="house-details">
-            <div class="house-card-header">
-                <h2>Apartamento Pequeño 1</h2>
-                <button class="close-btn">&times;</button>
-            </div>
-            <div class="house-info">
-                <p><b>ID:</b> <span>#120</span></p>
-                <p><b>Ubicación:</b> <span>Cerca de Washington</span></p>
-                <p><b>Muebles:</b> <span>0/10</span></p>
-                <p><b>Puertas:</b> <span>10</span></p>
-            </div>
-            <div class="house-card-footer">
-                <span class="price">$10,000,000</span>
-                <button class="buy-btn">Comprar</button>
-                <div class="footer-text">Ciruja Plugins</div>
-            </div>
-        </div>
-        <div class="house-image">
-            <img src="https://cdn.discordapp.com/attachments/609384851912523806/844938733710606367/image0_1.gif?ex=675a44c4&is=6758f344&hm=dddabcf153f4ec2adc6ab94570c5ca00a5384e4ee396af8771da008babd5452d&" alt="GIF de la casa">
-        </div>
+
+<header>
+    <h1>Vanguard RP</h1>
+    <p>¡Bienvenidos al servidor roleplay de Unturned con temática medieval!</p>
+</header>
+
+<div class="main-content">
+    <div class="images">
+        <img src="https://cdn.discordapp.com/attachments/1197242756381290548/1310028471053058101/image.png?ex=675a2416&is=6758d296&hm=7e705e87b802bafe4c347e319161881c7b9dc9a3df281252b5998b3dcacbaeba&" alt="Vanguard RP - Imagen 1">
+        <img src="https://media.discordapp.net/attachments/1197242756381290548/1289678638517588038/image.png?ex=6759efd4&is=67589e54&hm=d269f7118a85817cc618866c61a1adcdad2a9409d2adb6177a643e76b91bdb34&=&format=webp&quality=lossless&width=1248&height=702" alt="Vanguard RP - Imagen 2">
+        <img src="https://media.discordapp.net/attachments/1197242756381290548/1289678639763554357/image.png?ex=6759efd4&is=67589e54&hm=17ffb9280c8648913edef964e659fb4351d38e753836a8b4076f077f8decc602&=&format=webp&quality=lossless&width=1248&height=702" alt="Vanguard RP - Imagen 3">
     </div>
 
-    <script>
-        document.querySelector('.close-btn').addEventListener('click', function() {
-            alert('Cerrando ventana.');
-        });
+    <a href="https://discord.gg/cHBHMEa8" class="discord-btn" target="_blank">Únete a nuestro Discord</a>
+</div>
 
-        document.querySelector('.buy-btn').addEventListener('click', function() {
-            alert('Has comprado la casa.');
-        });
-    </script>
+<div class="announcements">
+    <div class="announcement">
+        <h2>Devlog 0.2</h2>
+        <p>Mucho texto, no me odien (Pero no quiero ser un servidor más).</p>
+        <div class="devlog-content">
+            <p>Como sabrán el servidor tomó un rumbo distinto, volviendo a la versión anterior que tenía enfocada en 1930. Los mods ya están elegidos y tienen un peso de aproximadamente 500 MBs, con pocos assets, por lo que no tardará más de 5 minutos en entrar al futuro servidor.</p>
+            <p>Además, no seremos un roleplay como cualquier otro en habla hispana. La idea es ser creativo y aprender de los demás, por lo tanto, tomando sugerencias de todos, se han planteado desarrollar roles estratégicos que dependerán de otros.</p>
+            <p><strong>Armeros:</strong> Comerciante legal de armas ligeras. Vende pistolas, escopetas y municiones a civiles con permisos legales.</p>
+            <p><strong>Mafiosos:</strong> Controlan el mercado negro y las operaciones clandestinas. Serán los únicos que tendrán acceso a armas pesadas.</p>
+            <p><strong>Transporte:</strong> Expertos en mover bienes ilegales/legales (incluidos cargamentos de armas), proveerán tanto a los mafiosos como a los armeros con cargamentos específicos.</p>
+            <p><strong>Proveedores Internacionales:</strong> Punto de contacto para que los jugadores compren cargamentos. Serán NPCs que funcionarán como mediadores si no hay nadie de la Empresa que dé cargamento.</p>
+            <p><strong>Policía e Investigadores:</strong> (Descripción pendiente).</p>
+            <p><strong>Mapa:</strong> El mapa se está desarrollando con una única ciudad principal que tendrá casi todo, pero habrá reglas muy estrictas con decoración y plantación. Además de que falta crear otro pueblo que actuará como zona roja (Sí, habrá pueblos).</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>¡Gracias por visitar Vanguard RP!</p>
+</footer>
+
 </body>
 </html>
