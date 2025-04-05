@@ -4,23 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HathPlugins.Com - Plugins Premium para Unturned</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --verde: #00ff99;
       --negro: #0c0c0c;
       --gris: #1e1e1e;
       --texto-claro: #e5e5e5;
+      --sombra: 0 0 20px rgba(0, 255, 153, 0.2);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -44,7 +41,7 @@
     header h1 {
       font-family: 'Orbitron', sans-serif;
       color: var(--verde);
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     nav a {
@@ -60,10 +57,10 @@
     }
 
     .hero {
-      background: linear-gradient(to right, #0c0c0c, #101010), url('https://i.imgur.com/fLdHjzL.jpg') no-repeat center/cover;
+      background: linear-gradient(to right, #0c0c0cdd, #101010dd), url('https://i.imgur.com/fLdHjzL.jpg') no-repeat center/cover;
       padding: 6rem 2rem;
       text-align: center;
-      color: white;
+      animation: fadeIn 2s ease;
     }
 
     .hero h2 {
@@ -78,7 +75,22 @@
       font-size: 1.2rem;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 1rem;
-      border-radius: 10px;
+      border-radius: 12px;
+    }
+
+    .confianza {
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 1.5rem;
+      background-color: #151515;
+      border-top: 2px solid var(--verde);
+      border-bottom: 2px solid var(--verde);
+      margin-top: -2rem;
+    }
+
+    .confianza span {
+      font-weight: bold;
+      color: var(--verde);
     }
 
     .seccion {
@@ -103,14 +115,15 @@
     .plugin-card {
       background-color: var(--gris);
       padding: 1.5rem;
-      border-radius: 12px;
+      border-radius: 15px;
       border-left: 5px solid var(--verde);
+      box-shadow: var(--sombra);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .plugin-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #00ff9977;
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px #00ff9980;
     }
 
     .plugin-card h4 {
@@ -136,6 +149,11 @@
       border-top: 2px solid var(--verde);
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
       .hero h2 {
         font-size: 2.2rem;
@@ -155,62 +173,78 @@
   </header>
 
   <section class="hero">
-    <h2>¡Impulsa tu servidor de Unturned!</h2>
-    <p>En HathPlugins.Com te ofrecemos los plugins más potentes, únicos y optimizados para llevar tu servidor al siguiente nivel.</p>
+    <h2>¡Plugins Premium para Unturned!</h2>
+    <p>En <strong>HathPlugins.Com</strong> desarrollamos plugins profesionales, con rendimiento optimizado y características únicas que harán que tu servidor se destaque del resto.</p>
   </section>
 
+  <div class="confianza">
+    <p>🌟 <span>Vanguard RP</span> y <span>EneTeUve</span> confían en <strong>HathPlugins.Com</strong> para llevar sus servidores al máximo nivel.</p>
+  </div>
+
   <section class="seccion" id="plugins">
-    <h3>Plugins Premium</h3>
+    <h3>Plugins Destacados</h3>
     <div class="grid">
       <div class="plugin-card">
         <h4>🌐 ZonaSegura+</h4>
-        <p>Zonas configurables con protección total, tiendas y eventos. Compatible con RocketMod y OpenMod.</p>
+        <p>Zonas con protección total, shops, eventos. Full configurable.</p>
       </div>
       <div class="plugin-card">
         <h4>🕒 AntiRaid Pro</h4>
-        <p>Protección contra raideos en horarios definidos. Con notificaciones y logs automáticos.</p>
+        <p>Raideos bloqueados fuera de horario. Logs automáticos y alertas.</p>
       </div>
       <div class="plugin-card">
         <h4>💰 Banco Virtual</h4>
-        <p>Interfaz amigable para administrar dinero en el servidor. Compatible con sistemas de economía.</p>
+        <p>Economía avanzada. Transacciones seguras y sin bugs.</p>
       </div>
       <div class="plugin-card">
-        <h4>📦 LootControl</h4>
-        <p>Control total del loot. Personalizá drops por zona, rareza y jugador.</p>
+        <h4>🛒 Tiendas Personalizadas</h4>
+        <p>Shop por NPC o comandos. Integración con economía externa.</p>
       </div>
       <div class="plugin-card">
         <h4>🎯 Custom Quests</h4>
-        <p>Crea misiones diarias, semanales o únicas con recompensas dinámicas y seguimiento.</p>
+        <p>Misiones únicas, sistema de recompensas y progresos.</p>
+      </div>
+      <div class="plugin-card">
+        <h4>🧠 ZombiIA+</h4>
+        <p>Zombis inteligentes: patrullan, cazan, reaccionan al entorno.</p>
+      </div>
+      <div class="plugin-card">
+        <h4>📍 PvP Tracker</h4>
+        <p>Estadísticas PvP en vivo. Rachas, muertes, recompensas.</p>
       </div>
       <div class="plugin-card">
         <h4>🛡️ Sistema de Clanes</h4>
-        <p>Permite crear clanes, territorios, diplomacia y guerras. Personalización total.</p>
+        <p>Clanes con aliados, enemigos, gestión de territorio y guerra.</p>
       </div>
       <div class="plugin-card">
-        <h4>🧠 Inteligencia Zombi+</h4>
-        <p>Los zombis patrullan, escuchan disparos y cazan jugadores. IA realista.</p>
+        <h4>🔧 AdminTools</h4>
+        <p>Menús para admins, sanciones rápidas, reportes en vivo.</p>
       </div>
       <div class="plugin-card">
-        <h4>📍 Tracker PvP</h4>
-        <p>Rastrea estadísticas PvP, duelos, muertes y recompensas por racha.</p>
+        <h4>🚓 RolPolicial+</h4>
+        <p>Sistema de patrullas, multas, cárcel, búsqueda y captura.</p>
       </div>
       <div class="plugin-card">
-        <h4>🔧 AutoAdmin Tools</h4>
-        <p>Herramientas para admins: sanciones rápidas, TP, logs y menú interactivo en juego.</p>
+        <h4>💡 Eventos Automáticos</h4>
+        <p>Eventos PvP, loot drops, bosses programados. Todo desde config.</p>
+      </div>
+      <div class="plugin-card">
+        <h4>📦 LootControl+</h4>
+        <p>Controla loot por región, por jugador, por rareza. Avanzado.</p>
       </div>
     </div>
   </section>
 
   <section class="seccion contacto" id="contacto">
     <h3>Contacto</h3>
-    <p>¿Necesitás soporte, un plugin personalizado o una integración única?</p>
+    <p>¿Querés un plugin personalizado? ¿Soporte dedicado? ¿Integración especial?</p>
     <p>📧 <strong>hathplugins@gmail.com</strong></p>
     <p>💬 Discord: <strong>@HathPlugins</strong></p>
-    <p>🌍 Sitio web oficial: <strong>www.HathPlugins.Com</strong></p>
+    <p>🌍 Sitio oficial: <strong>www.HathPlugins.Com</strong></p>
   </section>
 
   <footer>
-    &copy; 2025 HathPlugins.Com — Creado por y para jugadores de Unturned.
+    &copy; 2025 HathPlugins.Com — Plugins Premium para Unturned. Hecho por devs latinos, para servidores únicos.
   </footer>
 
 </body>
