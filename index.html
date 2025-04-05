@@ -3,249 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HathPlugins.Com - Plugins Premium para Unturned</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Contenedores RP</title>
   <style>
-    :root {
-      --verde: #00ff99;
-      --negro: #0c0c0c;
-      --gris: #1e1e1e;
-      --texto-claro: #e5e5e5;
-      --sombra: 0 0 20px rgba(0, 255, 153, 0.2);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--negro);
-      color: var(--texto-claro);
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
     }
 
     header {
-      background-color: var(--gris);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--verde);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      color: #00d9ff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 20%;
+      margin-bottom: 10px;
     }
 
     header h1 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--verde);
-      font-size: 2rem;
+      margin: 10px 0 0 0;
+      font-size: 2.2em;
     }
 
-    nav a {
-      margin-left: 1.5rem;
-      color: var(--texto-claro);
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      color: #00e0ff;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .discord-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #7289DA;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      transition: 0.3s;
     }
 
-    nav a:hover {
-      color: var(--verde);
-    }
-
-    .hero {
-      background: linear-gradient(to right, #0c0c0cdd, #101010dd), url('https://i.imgur.com/fLdHjzL.jpg') no-repeat center/cover;
-      padding: 6rem 2rem;
-      text-align: center;
-      animation: fadeIn 2s ease;
-    }
-
-    .hero h2 {
-      font-size: 3rem;
-      color: var(--verde);
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 1rem;
-      border-radius: 12px;
-    }
-
-    .confianza {
-      text-align: center;
-      font-size: 1.1rem;
-      padding: 1.5rem;
-      background-color: #151515;
-      border-top: 2px solid var(--verde);
-      border-bottom: 2px solid var(--verde);
-      margin-top: -2rem;
-    }
-
-    .confianza span {
-      font-weight: bold;
-      color: var(--verde);
-    }
-
-    .seccion {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .seccion h3 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--verde);
-      margin-bottom: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .plugin-card {
-      background-color: var(--gris);
-      padding: 1.5rem;
-      border-radius: 15px;
-      border-left: 5px solid var(--verde);
-      box-shadow: var(--sombra);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .plugin-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px #00ff9980;
-    }
-
-    .plugin-card h4 {
-      color: var(--verde);
-      margin-bottom: 0.6rem;
-    }
-
-    .plugin-card p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .contacto {
-      text-align: center;
-      font-size: 1.1rem;
+    .discord-btn:hover {
+      background: #5b6eae;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: #111;
+      padding: 20px;
+      font-size: 0.9em;
       color: #aaa;
-      border-top: 2px solid var(--verde);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 2.2rem;
-      }
+      border-top: 1px solid #333;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>HathPlugins.Com</h1>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#plugins">Plugins</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <img src="https://images-ext-1.discordapp.net/external/U_weFS3g_VNuQKneZus2h9BLP-bt2stBNQ4EkAlRGrw/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1191937720700911656/a7cb805abf55b5b50dcce06ccccb39c8.png?format=webp&quality=lossless" alt="Logo Contenedores RP">
+    <h1>Contenedores RP</h1>
+    <p>Servidor de Roleplay en Unturned</p>
   </header>
 
-  <section class="hero">
-    <h2>¡Plugins Premium para Unturned!</h2>
-    <p>En <strong>HathPlugins.Com</strong> desarrollamos plugins profesionales, con rendimiento optimizado y características únicas que harán que tu servidor se destaque del resto.</p>
-  </section>
+  <div class="container">
+    <section>
+      <h2>Bienvenido a Contenedores RP</h2>
+      <p>Un servidor de roleplay serio ambientado en los contenedores de Unturned. Vive una experiencia inmersiva con comandos únicos, economía funcional y oportunidades para bandas.</p>
+      <a href="https://discord.gg/BMny4fJr" target="_blank" class="discord-btn">Unirse al Discord</a>
+    </section>
 
-  <div class="confianza">
-    <p>🌟 <span>Vanguard RP</span> y <span>EneTeUve</span> confían en <strong>HathPlugins.Com</strong> para llevar sus servidores al máximo nivel.</p>
+    <section>
+      <h2>Comandos utilizables in-game</h2>
+      <ul>
+        <li>🎙️ <b>/vchat</b> — Cambiar el modo de voz.</li>
+        <li>🎰 <b>/roulette</b> — Juega a la ruleta en el casino.</li>
+        <li>🚗 <b>/carshop</b> — Comprar vehículos.</li>
+        <li>📞 <b>/911</b> — Llamar a los EMS.</li>
+        <li>📻 <b>/placeradio</b> — Colocar radio en tu vehículo.</li>
+        <li>🚙 <b>/glist</b> — Ver tus coches.</li>
+        <li>🅿️ <b>/gadd</b> — Guardar coche en garaje.</li>
+        <li>🔍 <b>/inv</b> — Revisar inventario de otro usuario.</li>
+        <li>🛠️ <b>/ar</b> — Contactar al staff.</li>
+        <li>📱 <b>/phone</b> — Abrir el teléfono.</li>
+        <li>📇 <b>/mynumber</b> — Saber tu número.</li>
+        <li>🗺️ <b>/wf</b> — Crear ruta al marcador.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Bandas</h2>
+      <p><i>"Me dirijo a ustedes como el Patrón... Estoy vigilando. Puedes crear una banda rellenando un formulario. Solo hay 3 cupos disponibles."</i></p>
+      <p>Organiza tu grupo, domina la ciudad, y deja tu marca en Contenedores RP.</p>
+    </section>
+
+    <section>
+      <h2>Formas de pago</h2>
+      <ul>
+        <li>🔵 <b>Paypal</b> — Bajo las condiciones de Paypal Inc.</li>
+        <li>🔴 <b>Mercado Pago</b> — Regido por Mercado Libre S.R.L.</li>
+        <li>🟡 <b>Binance</b> — Conforme a Binance Holdings Limited.</li>
+        <li>🟠 <b>RUT</b> — Transferencias bancarias en Chile.</li>
+      </ul>
+      <p><b>⚫ Devoluciones:</b> No se aceptan devoluciones ni reembolsos.</p>
+      <p><b>Seguridad:</b> Protégete y revisa siempre las condiciones de cada proveedor.</p>
+    </section>
   </div>
 
-  <section class="seccion" id="plugins">
-    <h3>Plugins Destacados</h3>
-    <div class="grid">
-      <div class="plugin-card">
-        <h4>🌐 ZonaSegura+</h4>
-        <p>Zonas con protección total, shops, eventos. Full configurable.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🕒 AntiRaid Pro</h4>
-        <p>Raideos bloqueados fuera de horario. Logs automáticos y alertas.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>💰 Banco Virtual</h4>
-        <p>Economía avanzada. Transacciones seguras y sin bugs.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🛒 Tiendas Personalizadas</h4>
-        <p>Shop por NPC o comandos. Integración con economía externa.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🎯 Custom Quests</h4>
-        <p>Misiones únicas, sistema de recompensas y progresos.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🧠 ZombiIA+</h4>
-        <p>Zombis inteligentes: patrullan, cazan, reaccionan al entorno.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>📍 PvP Tracker</h4>
-        <p>Estadísticas PvP en vivo. Rachas, muertes, recompensas.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🛡️ Sistema de Clanes</h4>
-        <p>Clanes con aliados, enemigos, gestión de territorio y guerra.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🔧 AdminTools</h4>
-        <p>Menús para admins, sanciones rápidas, reportes en vivo.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>🚓 RolPolicial+</h4>
-        <p>Sistema de patrullas, multas, cárcel, búsqueda y captura.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>💡 Eventos Automáticos</h4>
-        <p>Eventos PvP, loot drops, bosses programados. Todo desde config.</p>
-      </div>
-      <div class="plugin-card">
-        <h4>📦 LootControl+</h4>
-        <p>Controla loot por región, por jugador, por rareza. Avanzado.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion contacto" id="contacto">
-    <h3>Contacto</h3>
-    <p>¿Querés un plugin personalizado? ¿Soporte dedicado? ¿Integración especial?</p>
-    <p>📧 <strong>hathplugins@gmail.com</strong></p>
-    <p>💬 Discord: <strong>@HathPlugins</strong></p>
-    <p>🌍 Sitio oficial: <strong>www.HathPlugins.Com</strong></p>
-  </section>
-
   <footer>
-    &copy; 2025 HathPlugins.Com — Plugins Premium para Unturned. Hecho por devs latinos, para servidores únicos.
+    © 2025 Contenedores RP — Servidor de Unturned Roleplay. Diseñado con ❤️ por HathPlugins.
   </footer>
-
 </body>
 </html>
