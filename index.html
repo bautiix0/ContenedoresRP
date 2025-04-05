@@ -1,184 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contenedores RP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      font-family: 'Oxanium', cursive;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
     header {
-      background: rgba(0, 0, 0, 0.8);
+      background: radial-gradient(circle at top, #00ffe1, #000000);
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 60px 20px 30px;
       position: relative;
     }
 
     header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      animation: pulse 3s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      width: 150px;
+      height: 150px;
+      border-radius: 20%;
+      border: 4px solid #00ffe1;
+      box-shadow: 0 0 20px #00ffe1;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      color: #00d9ff;
-      margin: 10px 0;
+      font-size: 3rem;
+      margin-top: 20px;
+      color: #00ffe1;
+      text-shadow: 0 0 10px #00ffe1;
     }
 
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
     section {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 16px;
       padding: 30px;
       margin-bottom: 40px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease-in-out;
     }
 
     section:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ffe1;
+      transform: scale(1.02);
     }
 
     h2 {
-      color: #00e0ff;
-      margin-top: 0;
+      color: #00ffe1;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      text-shadow: 0 0 5px #00ffe1;
     }
 
     ul {
-      list-style: none;
-      padding-left: 0;
+      list-style-type: none;
     }
 
-    ul li {
+    li {
       margin-bottom: 10px;
+      padding-left: 15px;
+      position: relative;
+    }
+
+    li::before {
+      content: '➤';
+      position: absolute;
+      left: 0;
+      color: #00ffe1;
     }
 
     .discord-btn {
       display: inline-block;
-      margin-top: 15px;
-      background: #7289DA;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
+      background: #5865F2;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
+      box-shadow: 0 0 15px #5865F2;
       transition: 0.3s;
     }
 
     .discord-btn:hover {
-      background: #5b6eae;
+      background: #404eed;
+      box-shadow: 0 0 25px #5865F2;
     }
 
     footer {
+      background: #111;
+      color: #888;
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
-      color: #aaa;
-      border-top: 1px solid #333;
+      font-size: 0.9rem;
     }
 
     .floating-alert {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #00d9ff;
+      background: #00ffe1;
       color: #000;
       padding: 15px 20px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-radius: 15px;
+      font-weight: bold;
       z-index: 999;
-      animation: fadeInDown 1s ease;
+      animation: slideDown 1s ease forwards;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="floating-alert" id="alertBox">Bienvenido a Contenedores RP</div>
+
   <header>
     <img src="https://images-ext-1.discordapp.net/external/U_weFS3g_VNuQKneZus2h9BLP-bt2stBNQ4EkAlRGrw/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1191937720700911656/a7cb805abf55b5b50dcce06ccccb39c8.png?format=webp&quality=lossless" alt="Logo Contenedores RP">
     <h1>Contenedores RP</h1>
-    <p>Vive el mejor Roleplay en Unturned</p>
   </header>
 
   <div class="container">
     <section>
-      <h2>Sobre el Servidor</h2>
-      <p>Explora, comercia, interactúa y forja tu historia en el mejor roleplay de Unturned. Somos una comunidad seria, divertida y con espacio para todos.</p>
-      <a href="https://discord.gg/BMny4fJr" target="_blank" class="discord-btn">Unirse a Discord</a>
+      <h2>Bienvenido</h2>
+      <p>Contenedores RP es el mejor servidor de roleplay en Unturned, con funciones únicas, pagos internacionales y una comunidad activa. ¡Únete hoy y haz historia!</p>
+      <a href="https://discord.gg/BMny4fJr" class="discord-btn" target="_blank">ÚNETE A DISCORD</a>
     </section>
 
     <section>
-      <h2>Comandos IG</h2>
+      <h2>Comandos In-Game</h2>
       <ul>
-        <li>🎙️ <b>/vchat</b> — Cambiar el modo de voz.</li>
-        <li>🎰 <b>/roulette</b> — Ruleta del casino.</li>
-        <li>🚗 <b>/carshop</b> — Comprar vehículos.</li>
-        <li>📞 <b>/911</b> — Llamar a EMS.</li>
-        <li>📻 <b>/placeradio</b> — Poner radio en tu auto.</li>
-        <li>🚙 <b>/glist</b> — Ver coches del garaje.</li>
-        <li>🅿️ <b>/gadd</b> — Guardar coche.</li>
-        <li>🔍 <b>/inv</b> — Revisar inventario esposado.</li>
-        <li>🛠️ <b>/ar</b> — Soporte administrativo.</li>
-        <li>📱 <b>/phone</b> — Usar teléfono.</li>
-        <li>📇 <b>/mynumber</b> — Ver tu número.</li>
-        <li>🗺️ <b>/wf</b> — Ruta al marcador.</li>
+        <li>/vchat — Cambiar modo de voz</li>
+        <li>/roulette — Jugar a la ruleta</li>
+        <li>/carshop — Comprar vehículos</li>
+        <li>/911 — Llamar a EMS</li>
+        <li>/placeradio — Colocar radio</li>
+        <li>/glist — Ver vehículos</li>
+        <li>/gadd — Guardar vehículos</li>
+        <li>/inv — Revisar inventario</li>
+        <li>/ar — Soporte administrativo</li>
+        <li>/phone — Usar teléfono</li>
+        <li>/mynumber — Tu número</li>
+        <li>/wf — Ruta al marcador</li>
       </ul>
     </section>
 
     <section>
       <h2>Bandas</h2>
-      <p><i>"El Patrón les ofrece formar una banda GRATIS. Rellena el formulario. Solo hay 3 CUPOS disponibles."</i></p>
+      <p>⚠️ El Patrón te ofrece crear tu propia banda totalmente GRATIS. Solo debes llenar un formulario. ¡Hay solo 3 CUPOS disponibles!</p>
     </section>
 
     <section>
-      <h2>Pagos y Seguridad</h2>
+      <h2>Formas de Pago</h2>
       <ul>
         <li>🔵 Paypal</li>
         <li>🔴 Mercado Pago</li>
         <li>🟡 Binance</li>
-        <li>🟠 RUT (Transferencia Chilena)</li>
+        <li>🟠 Transferencia Bancaria (RUT)</li>
       </ul>
-      <p>⚫ <b>NO</b> hay devoluciones. Revisa todo antes de pagar.</p>
-      <p>⚠️ Protege tu información y revisa los términos de cada método.</p>
+      <p><strong>Nota:</strong> No se aceptan devoluciones. Asegúrate de verificar todo antes de pagar.</p>
     </section>
   </div>
 
   <footer>
-    © 2025 Contenedores RP • Diseñado con ❤️ por HathPlugins
+    Diseñado por HathPlugins • Vanguard RP y EneTeUve confían en HathPlugins.com
   </footer>
 
   <script>
     setTimeout(() => {
-      document.getElementById('alertBox').style.display = 'none';
+      const alert = document.getElementById('alertBox');
+      if(alert) alert.remove();
     }, 5000);
   </script>
 </body>
