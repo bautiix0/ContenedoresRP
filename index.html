@@ -3,192 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contenedores RP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;600&display=swap" rel="stylesheet">
+  <title>Die Deutscshe Hause - Inicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Arial:wght@700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Oxanium', cursive;
-      background: #0f0f0f;
-      color: #f1f1f1;
-      line-height: 1.6;
+      background: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: white;
+      font-family: 'Arial', sans-serif;
       overflow-x: hidden;
     }
-
-    header {
-      background: radial-gradient(circle at top, #00ffe1, #000000);
-      text-align: center;
-      padding: 60px 20px 30px;
-      position: relative;
+    .animate-bounce-in {
+      animation: bounce-in 1s ease;
     }
-
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 20%;
-      border: 4px solid #00ffe1;
-      box-shadow: 0 0 20px #00ffe1;
+    @keyframes bounce-in {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
     }
-
-    header h1 {
-      font-size: 3rem;
-      margin-top: 20px;
-      color: #00ffe1;
-      text-shadow: 0 0 10px #00ffe1;
+    .hover-scale {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
+    .hover-scale:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
     }
-
-    section {
-      background: #1c1c1c;
-      border: 1px solid #333;
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 40px;
-      transition: all 0.3s ease-in-out;
+    .glow {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
     }
-
-    section:hover {
-      box-shadow: 0 0 20px #00ffe1;
-      transform: scale(1.02);
+    .navbar {
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
     }
-
-    h2 {
-      color: #00ffe1;
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      text-shadow: 0 0 5px #00ffe1;
-    }
-
-    ul {
-      list-style-type: none;
-    }
-
-    li {
-      margin-bottom: 10px;
-      padding-left: 15px;
-      position: relative;
-    }
-
-    li::before {
-      content: '➤';
-      position: absolute;
-      left: 0;
-      color: #00ffe1;
-    }
-
-    .discord-btn {
-      display: inline-block;
-      background: #5865F2;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 15px #5865F2;
-      transition: 0.3s;
-    }
-
-    .discord-btn:hover {
-      background: #404eed;
-      box-shadow: 0 0 25px #5865F2;
-    }
-
-    footer {
-      background: #111;
-      color: #888;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    .floating-alert {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #00ffe1;
-      color: #000;
-      padding: 15px 20px;
-      border-radius: 15px;
-      font-weight: bold;
-      z-index: 999;
-      animation: slideDown 1s ease forwards;
-    }
-
-    @keyframes slideDown {
-      0% { opacity: 0; transform: translateY(-40px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .card {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.3);
     }
   </style>
 </head>
-<body>
-  <div class="floating-alert" id="alertBox">Bienvenido a Contenedores RP</div>
+<body class="p-6">
+  <!-- Navbar (fija, sin animación de entrada) -->
+  <nav class="navbar fixed top-0 left-0 w-full p-4 flex justify-between items-center z-10">
+    <div class="flex items-center">
+      <img src="logo.png" alt="Logo de Die Deutscshe Hause" class="h-12 rounded-full glow" onerror="this.src='https://via.placeholder.com/150?text=Logo'">
+      <h1 class="text-2xl font-bold ml-4">Die Deutscshe Hause</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-2xl hover-scale transition-all">
+        Cerrar Sesión
+      </button>
+      <img src="logo2.png" alt="Logo pequeño" class="h-16 animate-bounce-in" onerror="this.src='https://via.placeholder.com/40?text=Logo2'">
+    </div>
+  </nav>
 
-  <header>
-    <img src="https://images-ext-1.discordapp.net/external/U_weFS3g_VNuQKneZus2h9BLP-bt2stBNQ4EkAlRGrw/%3Fsize%3D4096/https/cdn.discordapp.com/icons/1191937720700911656/a7cb805abf55b5b50dcce06ccccb39c8.png?format=webp&quality=lossless" alt="Logo Contenedores RP">
-    <h1>Contenedores RP</h1>
-  </header>
+  <!-- Contenido principal -->
+  <div class="container mx-auto max-w-4xl mt-24">
+    <h1 class="text-5xl font-bold text-center mb-12 animate-bounce-in">Bienvenidos a Die Deutscshe Hause</h1>
 
-  <div class="container">
-    <section>
-      <h2>Bienvenido</h2>
-      <p>Contenedores RP es el mejor servidor de roleplay en Unturned, con funciones únicas, pagos internacionales y una comunidad activa. ¡Únete hoy y haz historia!</p>
-      <a href="https://discord.gg/BMny4fJr" class="discord-btn" target="_blank">ÚNETE A DISCORD</a>
-    </section>
-
-    <section>
-      <h2>Comandos In-Game</h2>
-      <ul>
-        <li>/vchat — Cambiar modo de voz</li>
-        <li>/roulette — Jugar a la ruleta</li>
-        <li>/carshop — Comprar vehículos</li>
-        <li>/911 — Llamar a EMS</li>
-        <li>/placeradio — Colocar radio</li>
-        <li>/glist — Ver vehículos</li>
-        <li>/gadd — Guardar vehículos</li>
-        <li>/inv — Revisar inventario</li>
-        <li>/ar — Soporte administrativo</li>
-        <li>/phone — Usar teléfono</li>
-        <li>/mynumber — Tu número</li>
-        <li>/wf — Ruta al marcador</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Bandas</h2>
-      <p>⚠️ El Patrón te ofrece crear tu propia banda totalmente GRATIS. Solo debes llenar un formulario. ¡Hay solo 3 CUPOS disponibles!</p>
-    </section>
-
-    <section>
-      <h2>Formas de Pago</h2>
-      <ul>
-        <li>🔵 Paypal</li>
-        <li>🔴 Mercado Pago</li>
-        <li>🟡 Binance</li>
-        <li>🟠 Transferencia Bancaria (RUT)</li>
-      </ul>
-      <p><strong>Nota:</strong> No se aceptan devoluciones. Asegúrate de verificar todo antes de pagar.</p>
-    </section>
+    <!-- Menú principal -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="register_activity.html" class="card p-6 rounded-3xl glow animate-bounce-in hover-scale text-center">
+        <h2 class="text-xl font-semibold text-blue-500 mb-2">Registrar Actividad</h2>
+        <p class="text-gray-300">Registra una nueva actividad para tu equipo.</p>
+      </a>
+      <a href="login.html" class="card p-6 rounded-3xl glow animate-bounce-in hover-scale text-center">
+        <h2 class="text-xl font-semibold text-blue-500 mb-2">Registrar Nuevo Usuario</h2>
+        <p class="text-gray-300">Añade un nuevo miembro al grupo.</p>
+      </a>
+      <a href="consult_activities.html" class="card p-6 rounded-3xl glow animate-bounce-in hover-scale text-center">
+        <h2 class="text-xl font-semibold text-blue-500 mb-2">Consultar Actividades</h2>
+        <p class="text-gray-300">Revisa las estadísticas de actividades.</p>
+      </a>
+    </div>
   </div>
 
-  <footer>
-    Diseñado por HathPlugins • Vanguard RP y EneTeUve confían en HathPlugins.com
-  </footer>
-
   <script>
-    setTimeout(() => {
-      const alert = document.getElementById('alertBox');
-      if(alert) alert.remove();
-    }, 5000);
+    // Verificar si el usuario está autenticado al cargar la página
+    window.onload = function() {
+      const isOrgLoggedIn = localStorage.getItem('isOrgLoggedIn') === 'true';
+      if (!isOrgLoggedIn) {
+        window.location.href = 'org_login.html';
+      }
+    };
+
+    function logout() {
+      localStorage.removeItem('isOrgLoggedIn');
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('isAdminLoggedIn'); // También limpiamos la sesión de administrador
+      alert('Sesión cerrada con éxito.');
+      window.location.href = 'org_login.html';
+    }
   </script>
 </body>
 </html>
